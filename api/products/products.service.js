@@ -30,16 +30,19 @@ module.exports = {
       return callBack(null, results[0]);
     });
   },
-  updateProduct: (data, callBack) => {
-    pool.query(`update product set name=?, quantity=?, price=? where id = ?`, [data.name, data.quantity, data.price, data.id], (error, results, fields) => {
+
+  updateProduct: (id, callBack) => {
+    pool.query(`update product set name=?, quantity=?, price=? where id = ?`, [id.name, id.quantity, id.price, id], (error, results, fields) => {
       if (error) {
         return callBack(error);
       }
+
       return callBack(null, results);
     });
   },
-  deleteProduct: (data, callBack) => {
-    pool.query(`delete from product where id = ?`, [data.id], (error, results, fields) => {
+
+  deleteProduct: (id, callBack) => {
+    pool.query(`delete from product where id = ?`, [id], (error, results, fields) => {
       if (error) {
         return callBack(error);
       }

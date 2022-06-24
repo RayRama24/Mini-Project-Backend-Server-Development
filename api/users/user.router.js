@@ -6,7 +6,7 @@ router.post("/", createUser);
 router.get("/", getUser);
 router.get("/:id", getUserById);
 // router.patch("/", checkToken, updateUser);
-router.delete("/", checkToken, deleteUser);
+router.delete("/:id", deleteUser);
 router.post("/login", login);
 
 module.exports = router;

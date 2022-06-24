@@ -31,8 +31,8 @@ module.exports = {
     });
   },
 
-  deleteUser: (data, callBack) => {
-    pool.query(`delete from merchant where id = ?`, [data.id], (error, results, fields) => {
+  deleteUser: (id, callBack) => {
+    pool.query(`delete from merchant where id = ?`, [id], (error, results, fields) => {
       if (error) {
         return callBack(error);
       }

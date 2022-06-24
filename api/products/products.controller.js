@@ -49,9 +49,9 @@ module.exports = {
     });
   },
   updateProduct: (req, res) => {
-    const id = req.id;
+    const id = req.params.id;
     const data = req.body;
-    updateProduct(data, (err, results) => {
+    updateProduct(id, (err, results) => {
       if (err) {
         console.log(err);
         return res.status(401);
@@ -69,8 +69,9 @@ module.exports = {
     });
   },
   deleteProduct: (req, res) => {
+    const id = req.params.id;
     const data = req.body;
-    deleteProduct(data, (err, results) => {
+    deleteProduct(id, (err, results) => {
       if (err) {
         console.log(err);
         return res.status(401);
